@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+  <title>Document</title>
+</head>
+<style media="screen">
+  *{
+    color: white;
+  }
+</style>
+<body>
+<div class="container">
+  <div class="row">
+<div class="col s1 card-panel teal pedra">Pedra</div>
+<div class="col s1 card-panel teal papel">Papel</div>
+<div class="col s1 card-panel teal tesoura">Tesoura</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+  var numeroAleatorio = 0;
+  var numeroClicado = 0;
+
+  $(".pedra").click(function() {
+    numeroClicado = 0;
+    console.log("Eu escolho: " + dandoNome(numeroClicado)+"!");
+    geraNumero();
+    resultado()
+  });
+  $(".papel").click(function() {
+    numeroClicado = 1;
+    console.log("Eu escolho: " + dandoNome(numeroClicado)+"!");
+    geraNumero();
+    resultado()
+  });
+  $(".tesoura").click(function() {
+    numeroClicado = 2;
+    console.log("Eu escolho: " + dandoNome(numeroClicado)+"!");
+    geraNumero();
+    resultado()
+  });
+
+function dandoNome(numeroClicado) {
+  if(numeroClicado == 0){
+    numeroClicado = "Pedra";
+  }
+
+  if (numeroClicado == 1) {
+    numeroClicado = "Papel";
+  }
+
+  if (numeroClicado == 2) {
+    numeroClicado = "Tesoura";
+  }
+
+  return numeroClicado;
+}
+
+  function geraNumero() {
+    numeroAleatorio = Math.floor(Math.random() * 3);
+    console.log("O pc escolhe:" + dandoNome(numeroAleatorio) + "!");
+    }
+
+  function resultado() {
+if (numeroClicado == numeroAleatorio) {
+  console.log("Empate!");
+}else {
+  if (numeroClicado == 0) {
+    if (numeroAleatorio == 2) {
+      console.log("Pedra venceu!");
+    }else{
+      console.log("Papel venceu!");
+    }
+  }
+  if (numeroClicado == 1) {
+    if (numeroAleatorio == 0) {
+      console.log("Papel Venceu!");
+    }else{
+      console.log("Tesoura Venceu!");
+    }
+  }
+  if (numeroClicado == 2) {
+   if (numeroAleatorio == 1) {
+     console.log("Tesoura Venceu!");
+   }else {
+     console.log("Pedra Venceu!");
+   }
+  }
+}
+
+console.log(numeroClicado + "," + numeroAleatorio);
+}
+
+
+
+</script>
+</html>
